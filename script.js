@@ -9,7 +9,7 @@ let eventListeners = new Set();
 let ListItem = document.querySelector(".items")
 
 
-//* Add event listener to the elements
+//* Add event listener to 
 
 
 filterInputField.addEventListener('keyup', function () {
