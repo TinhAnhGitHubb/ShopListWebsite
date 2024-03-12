@@ -1,0 +1,190 @@
+/*  
+
+* ::after: creates a pseudo-element that is the lastChild of the selected element
+<>: For example
+<a href="" class="dead-link">You can read more about it here</a>.
+
+.dead-link{
+    text-decoration: line-through;  this will put a line thourgh in the text "You can read more about it here"
+}
+.dead-linl::after{
+    content: url('../../media/warning.svg');
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+}
+
+this will create an image svg, due to inline display, it will sit right after/next to the text
+
+* ::before : just like after, but before :vvvv
+
+*/
+/* *: target all elements, except pseudo ones. Therefore we need the *::before and the *::after  */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*  border-box will also include the border, whereas the content-box excludes the border
+    
+        TODO: 
+        box-sizing: border-box;
+        width: 100%;
+        border: solid;
+        margin: 0px;
+        padding: 0px
+
+        The width of the child container(for example) will fit 100% inside the parent container, includes the border
+
+        WIth content-box, the actual content of the child will fit 100%(for example the width is 100px), 
+        the border will make the child's width increase to maybe 110px.
+            
+    */
+}
+
+
+/* Adding the font-family, font-size, line-height, color, ... to the body*/
+body {
+
+    font-family: Martian mono, monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/*  Adjust the header, apply flex, display, align items, margin,...*/
+/*
+In CSS, content that participates in block layout is called block-level content.
+
+The justify-content property is used to align the flex items:
+    center: aligns the flex item at the center of the container
+    flex-start: aligns the flex item at the start of the container
+    flex-end: ....the end....
+
+*/
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+header h1 {
+    font-weight: 300;
+    margin-left: 30px;
+}
+
+/* Adjust the container */
+/* max-width go with margin auto :vvv */
+.container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/*Adjust the form-input, the box to put in the input :vv*/
+/* adding border, padding, increase fontsize...*/
+.form-input {
+    width: 100%;
+    border: 2px solid #ccc;
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.form-input-filter {
+    border: none;
+    padding: 10px;
+    /* background-color: #f5f5f5; */
+    background: transparent;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    outline: none;
+    /* delete the outline when focused */
+}
+
+/*Adjust the button*/
+
+.btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*adding hover effect*/
+.btn:hover {
+    background-color: #444;
+}
+
+/*Class for delete button */
+.btn-link {
+    font-size: 16px;
+    background-color: cadetblue;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-link:hover {
+    color: red;
+}
+
+.btn-clear {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-clear:hover {
+    color: red;
+}
+
+/* Items */
+
+
+
+.items {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    overflow: auto;
+    max-height: 20vh;
+}
+
+
+.items li {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 0 5px 20px;
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .items li {
+        width: 100%;
+    }
+}
